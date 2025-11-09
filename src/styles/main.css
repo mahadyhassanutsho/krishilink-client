@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "krishilink";
+  default: true;
+  prefersdark: true;
+  color-scheme: "light";
+
+  --color-base-100: oklch(96% 0.02 105);
+  --color-base-200: oklch(91% 0.03 105);
+  --color-base-300: oklch(86% 0.04 105);
+  --color-base-content: oklch(24% 0.03 105);
+
+  --color-primary: oklch(60% 0.16 135);
+  --color-primary-content: oklch(97% 0.02 135);
+
+  --color-secondary: oklch(78% 0.19 85);
+  --color-secondary-content: oklch(20% 0.03 85);
+
+  --color-accent: oklch(70% 0.15 125);
+  --color-accent-content: oklch(98% 0.02 125);
+
+  --color-neutral: oklch(47% 0.05 95);
+  --color-neutral-content: oklch(95% 0.02 95);
+
+  --color-info: oklch(68% 0.09 210);
+  --color-info-content: oklch(15% 0.02 210);
+  --color-success: oklch(58% 0.12 145);
+  --color-success-content: oklch(97% 0.02 145);
+  --color-warning: oklch(72% 0.16 80);
+  --color-warning-content: oklch(15% 0.03 80);
+  --color-error: oklch(55% 0.21 30);
+  --color-error-content: oklch(94% 0.04 30);
+
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0.015;
+}
