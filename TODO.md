@@ -36,7 +36,7 @@
   - ✅ Logo + Project name  
   - ✅ Public links: Home, All Crops, Login, Register  
   - ✅ Private links: Home, All Crops, Profile, Add Crop, My Posts, My Interests, Logout  
-- 🚀 Stylish Footer (visible on all pages except 404)  
+- ✅ Stylish Footer (visible on all pages except 404)  
 - 🕐 Consistent typography, spacing, and colors  
 - 🕐 Responsive layout (mobile, tablet, desktop)  
 
