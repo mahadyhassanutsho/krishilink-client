@@ -51,7 +51,7 @@
 - 🚀 “View All” → All Crops page  
 - 🚀 How It Works section  
 - 🚀 Agro News / Blog section  
-- 🚀 Two extra sections  
+- ✅ Two extra sections  
 
 ### All Crops Page  
 
@@ -85,7 +85,8 @@
 - 🚀 Add Crop Page  
 - 🚀 My Posts Page  
 - 🚀 My Interests Page  
-- 🚀 Profile Page  
+- ✅ Profile Page  
+- ✅ Profile Update Page  
 
 ---
 
