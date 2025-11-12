@@ -1,23 +1,35 @@
-import { Suspense, useState, useMemo } from "react";
-import { useLoaderData } from "react-router";
+import { Suspense, useState, useEffect, useMemo } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+
+import { useAuth } from "../providers/AuthProvider";
+import { getCropsByEmail } from "../services/api";
 
 import ScrollToTop from "../components/shared/ScrollToTop";
 import PageTitle from "../components/shared/PageTitle";
 import CropList from "../components/crops/CropList";
 import Loader from "../components/shared/Loader";
 
-const AllCropsPage = () => {
-  const crops = useLoaderData();
-
+const MyCropsPage = () => {
+  const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
-  const [allCrops, _] = useState(crops);
+  const [allCrops, setAllCrops] = useState([]);
+
+  useEffect(() => {
+    getCropsByEmail(user.email).then((crops) => {
+      setAllCrops(crops);
+    });
+  }, [user.email]);
 
   const filteredCrops = useMemo(() => {
     const term = searchTerm.toLowerCase().trim();
     return allCrops.filter((crop) => crop.name.toLowerCase().includes(term));
   }, [searchTerm, allCrops]);
+
+  const cropsPromise = useMemo(
+    () => Promise.resolve(filteredCrops),
+    [filteredCrops]
+  );
 
   return (
     <motion.div
@@ -29,11 +41,11 @@ const AllCropsPage = () => {
     >
       <ScrollToTop />
 
-      <PageTitle title="All Crops" />
+      <PageTitle title="My Crops" />
 
       <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4 md:gap-0">
         <h1 className="text-3xl md:text-4xl font-extrabold text-primary">
-          All Crops
+          My Crops
         </h1>
 
         <div className="w-full md:w-2/5 flex justify-center">
@@ -49,7 +61,7 @@ const AllCropsPage = () => {
 
       <Suspense fallback={<Loader />}>
         {filteredCrops.length > 0 ? (
-          <CropList cropsPromise={(async () => filteredCrops)()} />
+          <CropList cropsPromise={cropsPromise} />
         ) : (
           <div className="flex flex-col items-center justify-center mt-20 text-center">
             <span className="text-6xl mb-4">😢</span>
@@ -68,4 +80,4 @@ const AllCropsPage = () => {
   );
 };
 
-export default AllCropsPage;
+export default MyCropsPage;

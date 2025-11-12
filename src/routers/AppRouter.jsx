@@ -11,6 +11,7 @@ import HomePage from "../pages/HomePage";
 import AddCorpPage from "../pages/AddCropPage";
 import AllCropsPage from "../pages/AllCropsPage";
 import CropDetailsPage from "../pages/CropDetailsPage";
+import MyCropsPage from "../pages/MyCropsPages";
 
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
@@ -37,13 +38,25 @@ const router = createBrowserRouter([
       },
       {
         path: "crops",
-        loader: getCrops,
+        loader: () => getCrops(),
         element: <AllCropsPage />,
       },
       {
         path: "crops/:id",
         loader: ({ params }) => getCropById(params.id),
-        element: <CropDetailsPage />,
+        element: (
+          <ProtectedRoute>
+            <CropDetailsPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "my-crops",
+        element: (
+          <ProtectedRoute>
+            <MyCropsPage />
+          </ProtectedRoute>
+        ),
       },
 
       { path: "login", element: <LoginPage /> },

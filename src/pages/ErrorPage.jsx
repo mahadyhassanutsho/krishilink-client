@@ -10,8 +10,6 @@ export default function ErrorPage() {
   const navigate = useNavigate();
   const error = useRouteError();
 
-  console.error(error);
-
   const goBack = () => navigate(-1);
 
   const status = error?.status || 500;

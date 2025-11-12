@@ -11,7 +11,7 @@ export const getCropById = async (id) => {
   return res.data;
 };
 
-export const getCropByEmail = async (email) => {
+export const getCropsByEmail = async (email) => {
   const res = await axios.get(`/crops?email=${email}`);
   return res.data;
 };
