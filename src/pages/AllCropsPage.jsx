@@ -1,8 +1,7 @@
 import { Suspense, useState, useEffect } from "react";
+import { useLoaderData } from "react-router";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-
-import { getCrops } from "../services/api";
 
 import ScrollToTop from "../components/shared/ScrollToTop";
 import PageTitle from "../components/shared/PageTitle";
@@ -10,16 +9,11 @@ import CropList from "../components/crops/CropList";
 import Loader from "../components/shared/Loader";
 
 const AllCropsPage = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [allCrops, setAllCrops] = useState([]);
-  const [filteredCrops, setFilteredCrops] = useState([]);
+  const crops = useLoaderData();
 
-  useEffect(() => {
-    getCrops().then((data) => {
-      setAllCrops(data);
-      setFilteredCrops(data);
-    });
-  }, []);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [allCrops, _] = useState(crops);
+  const [filteredCrops, setFilteredCrops] = useState(crops);
 
   useEffect(() => {
     const term = searchTerm.toLowerCase().trim();

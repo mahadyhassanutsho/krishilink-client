@@ -62,7 +62,7 @@
 
 ### Crop Details Page (Protected)  
 
-- 🚀 Show full crop info  
+- ✅ Show full crop info  
 - 🚀 Interest Form (non-owner)  
 - 🚀 Received Interests (owner)  
 - 🚀 Update UI on status change  

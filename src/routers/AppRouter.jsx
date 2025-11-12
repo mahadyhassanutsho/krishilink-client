@@ -1,23 +1,29 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 
+import { getCrops, getCropById } from "../services/api";
+
 import AppLayout from "../layouts/AppLayout";
 import ProtectedRoute from "../components/router/ProtectedRoute";
+import Loader from "../components/shared/Loader";
+import ErrorPage from "../pages/ErrorPage";
 
 import HomePage from "../pages/HomePage";
 import AddCorpPage from "../pages/AddCropPage";
+import AllCropsPage from "../pages/AllCropsPage";
+import CropDetailsPage from "../pages/CropDetailsPage";
 
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
-import NotFoundPage from "../pages/NotFoundPage";
 import ProfilePage from "../pages/ProfilePage";
 import UpdateProfilePage from "../pages/UpdateProfilePage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
-import AllCropsPage from "../pages/AllCropsPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    hydrateFallbackElement: <Loader />,
+    errorElement: <ErrorPage />,
     children: [
       { path: "", index: true, element: <HomePage /> },
 
@@ -31,7 +37,13 @@ const router = createBrowserRouter([
       },
       {
         path: "crops",
+        loader: getCrops,
         element: <AllCropsPage />,
+      },
+      {
+        path: "crops/:id",
+        loader: ({ params }) => getCropById(params.id),
+        element: <CropDetailsPage />,
       },
 
       { path: "login", element: <LoginPage /> },
@@ -54,10 +66,6 @@ const router = createBrowserRouter([
       },
       { path: "reset-password", element: <ResetPasswordPage /> },
     ],
-  },
-  {
-    path: "*",
-    element: <NotFoundPage />,
   },
 ]);
 
