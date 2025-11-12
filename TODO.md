@@ -46,7 +46,7 @@
 
 ### Home Page  
 
-- 🚀 Hero Slider (3+ agro slides)  
+- ✅ Hero Slider (3+ agro slides)  
 - 🚀 Latest Crops section (fetch 6 newest)  
 - 🚀 “View All” → All Crops page  
 - 🚀 How It Works section  
@@ -82,7 +82,7 @@
 
 ## 🌱 CRUD Operations  
 
-- 🚀 Add Crop Page  
+- ✅ Add Crop Page  
 - 🚀 My Posts Page  
 - 🚀 My Interests Page  
 - ✅ Profile Page  

@@ -19,7 +19,7 @@ const privateRoutes = [
   { name: "Home", path: "/" },
   { name: "All Crops", path: "/crops" },
   { name: "Profile", path: "/profile" },
-  { name: "Add Crop", path: "/add-crop" },
+  { name: "Add Crops", path: "/add-crop" },
   { name: "My Posts", path: "/my-posts" },
   { name: "My Interests", path: "/interests" },
 ];
