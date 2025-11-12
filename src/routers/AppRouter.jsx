@@ -2,7 +2,10 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 
 import AppLayout from "../layouts/AppLayout";
 import ProtectedRoute from "../components/router/ProtectedRoute";
+
 import HomePage from "../pages/HomePage";
+import AddCorpPage from "../pages/AddCropPage";
+
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import NotFoundPage from "../pages/NotFoundPage";
@@ -16,6 +19,16 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       { path: "", index: true, element: <HomePage /> },
+
+      {
+        path: "add-crop",
+        element: (
+          <ProtectedRoute>
+            <AddCorpPage />
+          </ProtectedRoute>
+        ),
+      },
+
       { path: "login", element: <LoginPage /> },
       { path: "register", element: <RegisterPage /> },
       {
