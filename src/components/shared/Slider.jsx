@@ -3,19 +3,19 @@ import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
 const PrevArrow = ({ onClick }) => (
   <div
-    className="absolute -left-8 top-1/2 z-20 cursor-pointer text-primary hover:text-accent transition-colors duration-200 ease-in-out"
+    className="absolute left-0 top-1/2 z-20 cursor-pointer text-white hover:text-accent transition-colors duration-200 ease-in-out"
     onClick={onClick}
   >
-    <HiChevronLeft size={24} />
+    <HiChevronLeft className="font-bold text-xl md:text-2xl lg:text-4xl" />
   </div>
 );
 
 const NextArrow = ({ onClick }) => (
   <div
-    className="absolute -right-8 top-1/2 z-20 cursor-pointer text-primary hover:text-accent transition-colors duration-200 ease-in-out"
+    className="absolute right-0 top-1/2 z-20 cursor-pointer text-white hover:text-accent transition-colors duration-200 ease-in-out"
     onClick={onClick}
   >
-    <HiChevronRight size={24} />
+    <HiChevronRight className="font-bold text-xl md:text-2xl lg:text-4xl" />
   </div>
 );
 
@@ -32,7 +32,7 @@ const Slider = ({ children }) => {
   };
 
   return (
-    <div className="slider-container">
+    <div className="slider-container overflow-hidden">
       <SlickSlider {...settings}>{children}</SlickSlider>
     </div>
   );

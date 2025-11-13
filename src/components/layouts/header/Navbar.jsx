@@ -26,14 +26,13 @@ const privateRoutes = [
 
 const Navbar = () => {
   const { authIsReady, user, clearUser } = useAuth();
-  const { value: menuOpen, toggle: toggleMenuOpen } = useToggle();
+  const { value: menuOpen, toggle: toggleMenuOpen } = useToggle(false);
   const routes = user ? privateRoutes : publicRoutes;
 
   const handleAuthResult = (success, message) => {
     if (success) {
       clearUser();
       alert.info("Logged Out!", `You are successfully logged out.`);
-      // navigate(redirectTo || "/profile");
     } else {
       alert.error("Oops!", message);
     }

@@ -50,7 +50,7 @@ const AddCorpPage = () => {
   };
 
   return (
-    <>
+    <div className="min-h-[80vh] flex flex-col items-center justify-center">
       <ScrollToTop />
       <PageTitle title="Add Crop" />
 
@@ -87,7 +87,7 @@ const AddCorpPage = () => {
               {...registerFormField("image", {
                 required: "Image URL is required",
                 pattern: {
-                  value: /^https?:\/\/.+\.(jpg|jpeg|png|webp|svg)$/i,
+                  value: /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/i,
                   message: "Please enter a valid image URL",
                 },
               })}
@@ -200,7 +200,7 @@ const AddCorpPage = () => {
           </motion.button>
         </fieldset>
       </motion.form>
-    </>
+    </div>
   );
 };
 

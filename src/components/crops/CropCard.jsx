@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { FaMapMarkerAlt, FaAppleAlt } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const CropCard = ({ crop }) => {
   return (
@@ -8,14 +8,16 @@ const CropCard = ({ crop }) => {
         <img
           src={crop.image}
           alt={crop.name}
-          className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
+          className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
         />
       </div>
 
       <div className="p-4 flex flex-col gap-2">
         <h2 className="text-xl font-bold text-primary">{crop.name}</h2>
 
-        <p className="text-sm text-gray-500">{crop.type.trim()}</p>
+        <span className="text-sm font-medium text-base-content/75 bg-base-300 px-2 py-1 rounded-lg w-fit">
+          {crop.type}
+        </span>
 
         <p className="text-lg font-semibold">
           Price: {crop.pricePerUnit} BDT / {crop.unit.toUpperCase()}
@@ -26,8 +28,8 @@ const CropCard = ({ crop }) => {
           <span>{crop.location}</span>
         </div>
 
-        <p className="text-sm italic text-gray-600 mt-1">
-          {crop.description.slice(0, 120)}...
+        <p className="text-sm italic text-gray-600 mt-1 line-clamp-2">
+          {crop.description}
         </p>
 
         <Link

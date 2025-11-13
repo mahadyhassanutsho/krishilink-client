@@ -61,7 +61,7 @@ const LoginPage = () => {
   };
 
   return (
-    <>
+    <div className="min-h-[80vh] flex flex-col items-center justify-center">
       <ScrollToTop />
       <PageTitle title="Login" />
 
@@ -177,7 +177,7 @@ const LoginPage = () => {
           </button>
         </fieldset>
       </motion.form>
-    </>
+    </div>
   );
 };
 

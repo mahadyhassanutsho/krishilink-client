@@ -62,13 +62,14 @@ const MyInterestsPage = () => {
     );
   };
 
+  if (loading) return <Loader size="lg" />;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 25 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -25 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="space-y-16"
     >
       <ScrollToTop />
 
@@ -80,11 +81,7 @@ const MyInterestsPage = () => {
         </h1>
       </div>
 
-      {loading ? (
-        <div className="flex justify-center mt-20">
-          <Loader />
-        </div>
-      ) : allInterests.length > 0 ? (
+      {allInterests.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {allInterests.map((interest) => (
             <EditableInterestCard
@@ -97,7 +94,6 @@ const MyInterestsPage = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center mt-20 text-center">
-          <span className="text-6xl mb-4">😢</span>
           <h2 className="text-3xl font-semibold text-gray-700 mb-2">
             No interests found
           </h2>

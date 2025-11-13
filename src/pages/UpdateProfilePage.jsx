@@ -43,7 +43,7 @@ const UpdateProfilePage = () => {
   };
 
   return (
-    <>
+    <div className="min-h-[80vh] flex flex-col items-center justify-center">
       <ScrollToTop />
       <PageTitle title="Update Profile" />
 
@@ -118,7 +118,7 @@ const UpdateProfilePage = () => {
           </button>
         </fieldset>
       </motion.form>
-    </>
+    </div>
   );
 };
 

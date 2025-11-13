@@ -2,7 +2,13 @@ import { FaComment, FaHashtag } from "react-icons/fa";
 
 import { useAuth } from "../../providers/AuthProvider";
 
-const InterestCard = ({ interest, crop, showCrop = false, onUpdateStatus }) => {
+const InterestCard = ({
+  interest,
+  crop,
+  showCrop = false,
+  shortenMessage = false,
+  onUpdateStatus,
+}) => {
   const { user } = useAuth();
 
   return (
@@ -36,19 +42,15 @@ const InterestCard = ({ interest, crop, showCrop = false, onUpdateStatus }) => {
 
       <div className="space-y-1">
         <h2 className="font-bold text-2xl text-primary">Interest Details:</h2>
-
         <p className="text-gray-800">
           <strong>Quantity:</strong> {interest.quantity} {crop.unit}
         </p>
-
-        {interest.message && (
-          <p className="flex items-center gap-2 text-base-content/75 italic my-2">
-            <FaComment className="text-gray-400" />
+        <p className="flex items-center gap-2 text-base-content/75 italic my-2">
+          <span className={shortenMessage ? "line-clamp-1" : ""}>
             {interest.message}
-          </p>
-        )}
-
-        <p>
+          </span>
+        </p>
+        <p className="text-wrap">
           <strong>Submitted by:</strong> {interest.userName} (
           {interest.userEmail})
           <br />
@@ -56,7 +58,6 @@ const InterestCard = ({ interest, crop, showCrop = false, onUpdateStatus }) => {
             <strong>at</strong> {new Date(interest.createdAt).toLocaleString()}
           </small>
         </p>
-
         <p
           className={`w-fit text-sm font-semibold px-3 py-1 rounded-full ${
             interest.status === "approved"
@@ -68,7 +69,6 @@ const InterestCard = ({ interest, crop, showCrop = false, onUpdateStatus }) => {
         >
           {interest.status}
         </p>
-
         <p className="flex items-center gap-2 text-lg mt-4">
           <strong>Total Price:</strong>
           <span>{interest.quantity * (crop.pricePerUnit || 0)} BDT</span>

@@ -1,4 +1,4 @@
-import { Suspense, useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { useLoaderData } from "react-router";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
@@ -24,7 +24,6 @@ const AllCropsPage = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -25 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="min-h-screen"
     >
       <ScrollToTop />
 
@@ -54,7 +53,6 @@ const AllCropsPage = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center mt-20 text-center">
-          <span className="text-6xl mb-4">😢</span>
           <h2 className="text-3xl font-semibold text-gray-700 mb-2">
             No crops found
           </h2>

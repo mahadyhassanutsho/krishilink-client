@@ -49,7 +49,12 @@ const EditableInterestCard = ({ interest, onUpdate, onDelete }) => {
 
   return (
     <div className="bg-base-100 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 p-5 flex flex-col gap-4">
-      <InterestCard crop={crop} interest={interest} showCrop={true} />
+      <InterestCard
+        crop={crop}
+        interest={interest}
+        showCrop={true}
+        shortenMessage={true}
+      />
 
       <div className="flex gap-2 mt-4">
         <button

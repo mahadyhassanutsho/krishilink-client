@@ -24,7 +24,7 @@ const HomePage = () => {
     >
       <PageTitle title="Home" />
 
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader size="lg" />}>
         <Hero cropsPromise={getRandomCrops(4)} />
       </Suspense>
 

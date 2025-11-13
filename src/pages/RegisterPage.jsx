@@ -62,7 +62,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <>
+    <div className="min-h-[80vh] flex flex-col items-center justify-center">
       <ScrollToTop />
       <PageTitle title="Register" />
 
@@ -199,7 +199,7 @@ const RegisterPage = () => {
           </button>
         </fieldset>
       </motion.form>
-    </>
+    </div>
   );
 };
 

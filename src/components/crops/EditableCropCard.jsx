@@ -46,7 +46,7 @@ const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
         <img
           src={crop.image}
           alt={crop.name}
-          className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
+          className="w-full h-auto object-contain transition-transform duration-500 hover:scale-105"
         />
       </div>
 
@@ -75,7 +75,7 @@ const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
           </div>
         </div>
 
-        <p className="text-sm italic text-gray-600 line-clamp-3">
+        <p className="text-sm italic text-gray-600 line-clamp-2">
           {crop.description}
         </p>
 

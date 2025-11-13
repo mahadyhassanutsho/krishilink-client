@@ -37,7 +37,7 @@ const ResetPasswordPage = () => {
   };
 
   return (
-    <>
+    <div className="min-h-[80vh] flex flex-col items-center justify-center">
       <ScrollToTop />
       <PageTitle title="Reset Password" />
 
@@ -95,7 +95,7 @@ const ResetPasswordPage = () => {
           </button>
         </fieldset>
       </motion.form>
-    </>
+    </div>
   );
 };
 

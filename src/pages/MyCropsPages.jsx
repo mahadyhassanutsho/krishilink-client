@@ -64,13 +64,14 @@ const MyCropsPage = () => {
     );
   };
 
+  if (loading) return <Loader size="lg" />;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 25 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -25 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="space-y-16"
     >
       <ScrollToTop />
 
@@ -81,22 +82,18 @@ const MyCropsPage = () => {
           My Crops
         </h1>
 
-        <div className="w-full md:w-2/5 flex justify-center">
+        <div className="w-full md:max-w-md flex justify-center">
           <input
             type="text"
             placeholder="Search crops by names"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="input input-bordered w-full max-w-md rounded-lg border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 placeholder-gray-400 shadow-sm transition-all duration-200"
+            className="input input-bordered w-full rounded-lg border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 placeholder-gray-400 shadow-sm transition-all duration-200"
           />
         </div>
       </div>
 
-      {loading ? (
-        <div className="flex justify-center">
-          <Loader />
-        </div>
-      ) : filteredCrops.length > 0 ? (
+      {filteredCrops.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredCrops.map((crop) => (
             <EditableCropCard
@@ -109,7 +106,6 @@ const MyCropsPage = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center text-center">
-          <span className="text-6xl mb-4">😢</span>
           <h2 className="text-3xl font-semibold text-gray-700 mb-2">
             No crops found
           </h2>

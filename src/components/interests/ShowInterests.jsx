@@ -43,13 +43,13 @@ const ShowInterests = ({ crop }) => {
   if (interests.length === 0)
     return (
       <p className="text-center text-gray-500 text-xl mt-10">
-        No interests found 😢
+        No interests found
       </p>
     );
 
   return (
-    <div className="space-y-2 max-w-4xl mx-auto p-4">
-      <h2>Interests: </h2>
+    <div className="space-y-6 max-w-4xl mx-auto">
+      <h2 className="text-3xl font-bold text-primary">Interests: </h2>
       {interests.map((interest) => (
         <InterestCard
           key={interest._id}

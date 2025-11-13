@@ -1,30 +1,33 @@
+import { lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
 import { getCrops, getCropById } from "../services/api";
 
-import AppLayout from "../layouts/AppLayout";
-import ProtectedRoute from "../components/router/ProtectedRoute";
-import Loader from "../components/shared/Loader";
-import ErrorPage from "../pages/ErrorPage";
+const AppLayout = lazy(() => import("../layouts/AppLayout"));
+const ProtectedRoute = lazy(() =>
+  import("../components/router/ProtectedRoute")
+);
+const LoaderPage = lazy(() => import("../pages/LoaderPage"));
+const ErrorPage = lazy(() => import("../pages/ErrorPage"));
 
-import HomePage from "../pages/HomePage";
-import AddCorpPage from "../pages/AddCropPage";
-import AllCropsPage from "../pages/AllCropsPage";
-import CropDetailsPage from "../pages/CropDetailsPage";
-import MyCropsPage from "../pages/MyCropsPages";
-import MyInterestsPage from "../pages/MyInterestsPage";
+const HomePage = lazy(() => import("../pages/HomePage"));
+const AddCorpPage = lazy(() => import("../pages/AddCropPage"));
+const AllCropsPage = lazy(() => import("../pages/AllCropsPage"));
+const CropDetailsPage = lazy(() => import("../pages/CropDetailsPage"));
+const MyCropsPage = lazy(() => import("../pages/MyCropsPages"));
+const MyInterestsPage = lazy(() => import("../pages/MyInterestsPage"));
 
-import LoginPage from "../pages/LoginPage";
-import RegisterPage from "../pages/RegisterPage";
-import ProfilePage from "../pages/ProfilePage";
-import UpdateProfilePage from "../pages/UpdateProfilePage";
-import ResetPasswordPage from "../pages/ResetPasswordPage";
+const LoginPage = lazy(() => import("../pages/LoginPage"));
+const RegisterPage = lazy(() => import("../pages/RegisterPage"));
+const ProfilePage = lazy(() => import("../pages/ProfilePage"));
+const UpdateProfilePage = lazy(() => import("../pages/UpdateProfilePage"));
+const ResetPasswordPage = lazy(() => import("../pages/ResetPasswordPage"));
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    hydrateFallbackElement: <Loader />,
+    hydrateFallbackElement: <LoaderPage />,
     errorElement: <ErrorPage />,
     children: [
       { path: "", index: true, element: <HomePage /> },

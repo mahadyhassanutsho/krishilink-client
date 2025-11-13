@@ -11,12 +11,12 @@ const ProfilePage = () => {
   const { user } = useAuth();
 
   return (
-    <>
+    <div className="min-h-[80vh] flex flex-col items-center justify-center">
       <ScrollToTop />
       <PageTitle title="Profile" />
 
       <motion.div
-        className="relative border border-base-300 rounded-xl shadow-md w-fit p-16 mx-auto flex flex-col items-center"
+        className="relative border border-base-300 rounded-xl shadow-md w-fit p-16 mx-auto flex flex-col items-center justify-center"
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -25 }}
@@ -47,7 +47,7 @@ const ProfilePage = () => {
           <Link to="/update-profile">Update Profile</Link>
         </motion.button>
       </motion.div>
-    </>
+    </div>
   );
 };
 

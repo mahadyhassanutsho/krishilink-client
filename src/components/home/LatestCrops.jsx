@@ -8,7 +8,7 @@ import CropList from "../crops/CropList";
 
 const LatestCrops = () => {
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader size="lg" />}>
       <section className="space-y-6">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl md:text-4xl font-bold text-primary">

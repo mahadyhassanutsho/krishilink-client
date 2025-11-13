@@ -16,7 +16,7 @@ const CropDetailsPage = () => {
   if (!crop)
     return (
       <p className="text-center text-gray-500 text-xl mt-10">
-        Crop details not found 😢
+        Crop details not found
       </p>
     );
 
@@ -26,7 +26,7 @@ const CropDetailsPage = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -25 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="space-y-12 py-10"
+      className="space-y-12"
     >
       <ScrollToTop />
       <PageTitle title="Crop Details" />
@@ -40,22 +40,22 @@ const CropDetailsPage = () => {
         <div className="flex-1 space-y-4">
           <h2 className="text-3xl font-bold text-primary">{crop.name}</h2>
           <p className="text-gray-600">{crop.description}</p>
-          <div className="flex flex-wrap gap-4 text-gray-700">
-            <span>
+          <div className="flex flex-col gap-4 text-base-content/75">
+            <p>
               <strong>Type:</strong> {crop.type}
-            </span>
-            <span>
+            </p>
+            <p>
               <strong>Price:</strong> {crop.pricePerUnit} per {crop.unit}
-            </span>
-            <span>
+            </p>
+            <p>
               <strong>Quantity:</strong> {crop.quantity} {crop.unit}
-            </span>
-            <span>
+            </p>
+            <p>
               <strong>Location:</strong> {crop.location}
-            </span>
-            <span>
+            </p>
+            <p>
               <strong>Owner:</strong> {crop.ownerName} ({crop.ownerEmail})
-            </span>
+            </p>
           </div>
           <p className="text-gray-400 text-sm">
             Created at: {new Date(crop.createdAt).toLocaleString()}
