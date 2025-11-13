@@ -1,8 +1,10 @@
-import { useLoaderData } from "react-router";
+import { useEffect, useState, useCallback } from "react";
+import { useParams } from "react-router";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 import { useAuth } from "../providers/AuthProvider";
+import { getCropById } from "../services/api";
 
 import ScrollToTop from "../components/shared/ScrollToTop";
 import PageTitle from "../components/shared/PageTitle";
@@ -10,8 +12,33 @@ import AddInterest from "../components/interests/AddInterest";
 import ShowInterests from "../components/interests/ShowInterests";
 
 const CropDetailsPage = () => {
-  const crop = useLoaderData();
+  const { id } = useParams();
   const { user } = useAuth();
+
+  const [crop, setCrop] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const fetchCrop = useCallback(async () => {
+    setLoading(true);
+    try {
+      const data = await getCropById(id);
+      setCrop(data);
+    } catch (err) {
+      console.error("Failed to fetch crop:", err);
+      setCrop(null);
+    } finally {
+      setLoading(false);
+    }
+  }, [id]);
+
+  useEffect(() => {
+    fetchCrop();
+  }, [id, fetchCrop]);
+
+  if (loading)
+    return (
+      <p className="text-center text-gray-500 text-xl mt-10">Loading crop...</p>
+    );
 
   if (!crop)
     return (
@@ -35,7 +62,7 @@ const CropDetailsPage = () => {
         <img
           src={crop.image}
           alt={crop.name}
-          className="w-full md:w-1/3 h-48 md:h-auto object-contain rounded-xl"
+          className="w-full md:w-1/2 h-auto object-cover rounded-xl"
         />
         <div className="flex-1 space-y-4">
           <h2 className="text-3xl font-bold text-primary">{crop.name}</h2>
@@ -45,10 +72,12 @@ const CropDetailsPage = () => {
               <strong>Type:</strong> {crop.type}
             </p>
             <p>
-              <strong>Price:</strong> {crop.pricePerUnit} per {crop.unit}
+              <strong>Price:</strong> {crop.pricePerUnit} /{" "}
+              {crop.unit.toUpperCase()}
             </p>
             <p>
-              <strong>Quantity:</strong> {crop.quantity} {crop.unit}
+              <strong>Quantity:</strong> {crop.quantity}{" "}
+              {crop.unit.toUpperCase()}
             </p>
             <p>
               <strong>Location:</strong> {crop.location}
@@ -64,7 +93,7 @@ const CropDetailsPage = () => {
       </div>
 
       {user.email === crop.ownerEmail ? (
-        <ShowInterests crop={crop} />
+        <ShowInterests crop={crop} refreshCrop={fetchCrop} />
       ) : (
         <AddInterest user={user} crop={crop} />
       )}

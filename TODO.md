@@ -102,6 +102,6 @@
 
 ## 📦 Submission Checklist  
 
-- 🚀 Client GitHub Repo Link  
-- 🚀 Server GitHub Repo Link  
-- 🚀 Live Site URL  
+- ✅ Client GitHub Repo Link: <https://github.com/mahadyhassanutsho/krishilink-client>
+- ✅ Server GitHub Repo Link: <https://github.com/mahadyhassanutsho/krishilink-server>
+- ✅ Live Site URL: <https://krishilink.web.app>

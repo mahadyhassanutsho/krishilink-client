@@ -23,14 +23,14 @@ const LoginPage = () => {
   const {
     register: registerFormField,
     reset: resetForm,
-    watch,
+    // watch,
     handleSubmit,
     formState: { errors: formErrors, isSubmitting: formIsSubmitting },
   } = useForm();
   const { state: redirectTo } = useLocation();
   const navigate = useNavigate();
 
-  const email = watch("email");
+  // const email = watch("email");
 
   const handleAuthResult = (success, user, message) => {
     if (success) {
@@ -135,7 +135,7 @@ const LoginPage = () => {
             </div>
           </div>
 
-          <div className="mt-2">
+          {/* <div className="mt-2">
             <Link
               to="/reset-password"
               state={email}
@@ -143,7 +143,7 @@ const LoginPage = () => {
             >
               Forgot password?
             </Link>
-          </div>
+          </div> */}
 
           <div className="my-4 text-center space-x-1 text-sm">
             <span>Don't have an account? </span>

@@ -1,12 +1,16 @@
 import { useEffect, useState, useCallback } from "react";
 
-import { getInterestsByCropId, updateInterest } from "../../services/api";
+import {
+  getInterestsByCropId,
+  updateCrop,
+  updateInterest,
+} from "../../services/api";
 import alert from "../../lib/utils/alert";
 
 import Loader from "../shared/Loader";
 import InterestCard from "./InterestCard";
 
-const ShowInterests = ({ crop }) => {
+const ShowInterests = ({ crop, refreshCrop }) => {
   const [interests, setInterests] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -22,12 +26,18 @@ const ShowInterests = ({ crop }) => {
     }
   }, [crop._id]);
 
-  const updateInterestStatus = async (interestId, status) => {
+  const updateInterestStatus = async (interest, status) => {
     await alert.confirm(
       "Are you sure?",
       "You are about to update the interest status.",
       async () => {
-        await updateInterest(interestId, { status });
+        await updateInterest(interest._id, { status });
+        if (status === "approved") {
+          await updateCrop(crop._id, {
+            quantity: crop.quantity - interest.quantity,
+          });
+          await refreshCrop();
+        }
         await fetchInterests();
         alert.success("Updated", "Interest status updated successfully");
       }

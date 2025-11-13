@@ -29,7 +29,7 @@ const HowItWorks = () => {
         {steps.map((step, i) => (
           <div
             key={i}
-            className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all"
+            className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all flex flex-col items-center"
           >
             {step.icon}
             <h3 className="text-xl font-semibold mb-3">{step.title}</h3>

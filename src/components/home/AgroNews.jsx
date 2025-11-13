@@ -2,20 +2,20 @@ import { Link } from "react-router";
 
 const blogPosts = [
   {
-    title: "Climate-Smart Farming: The Future of Agriculture",
-    desc: "Discover how technology and data are helping farmers adapt to changing climates and boost productivity.",
+    title: "Climate-Smart Farming: Growing with Tomorrow",
+    desc: "See how innovation and data-driven tools help farmers in changing climates.",
     img: "https://plus.unsplash.com/premium_photo-1661962692059-55d5a4319814?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     link: "",
   },
   {
-    title: "Top 5 Profitable Crops for 2025",
-    desc: "From organic vegetables to medicinal herbs — here are the crops dominating this year’s market.",
+    title: "Top 5 Profitable Crops Defining Agriculture in 2025",
+    desc: "Discover the high-yield crops — from greens to herbs — leading this year’s agro-market surge.",
     img: "https://plus.unsplash.com/premium_photo-1664300110866-15f2980d5bba?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGFncm98ZW58MHx8MHx8fDA%3D",
     link: "",
   },
   {
-    title: "Empowering Small Farmers Through Digital Platforms",
-    desc: "Learn how online marketplaces like KrishiLink are transforming local agro-economies.",
+    title: "Digital Platforms Empowering Local Farmers",
+    desc: "Explore how tools like KrishiLink connect growers, boost trade, and fuel rural transformation.",
     img: "https://images.unsplash.com/photo-1625758476104-f2ed6c81248f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGFncm98ZW58MHx8MHx8fDA%3D",
     link: "",
   },

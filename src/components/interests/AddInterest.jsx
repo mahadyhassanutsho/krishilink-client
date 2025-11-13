@@ -20,35 +20,42 @@ const AddInterest = ({ user, crop }) => {
   const quantity = watch("quantity");
 
   const handleInterestSubmission = async (formData) => {
-    try {
-      await postInterest({
-        ...formData,
-        cropId: crop._id,
-        userName: user.displayName,
-        userEmail: user.email,
-      });
+    await alert.confirm(
+      "Confirm Your Action",
+      "Are you sure you want to buy this crop?",
+      async () => {
+        try {
+          await postInterest({
+            ...formData,
+            cropId: crop._id,
+            userName: user.displayName,
+            userEmail: user.email,
+          });
 
-      alert.success(
-        "Interest Added!",
-        "Your interest has been recorded successfully."
-      );
-      resetForm();
-      navigate("/my-interests");
-    } catch (error) {
-      console.error(error);
+          alert.success(
+            "Interest Added!",
+            "Your interest has been recorded successfully."
+          );
+          resetForm();
+          navigate("/my-interests");
+        } catch (error) {
+          console.error(error);
 
-      if (error.response?.data?.errors) {
-        const errorMessages = Object.values(error.response.data.errors)
-          .map((err) => err.message)
-          .join(", ");
-        alert.error("Validation Error", errorMessages);
-      } else {
-        alert.error(
-          "Network/Error",
-          error.response?.data?.message || "Unable to connect to the server."
-        );
+          if (error.response?.data?.errors) {
+            const errorMessages = Object.values(error.response.data.errors)
+              .map((err) => err.message)
+              .join(", ");
+            alert.error("Validation Error", errorMessages);
+          } else {
+            alert.error(
+              "Network/Error",
+              error.response?.data?.message ||
+                "Unable to connect to the server."
+            );
+          }
+        }
       }
-    }
+    );
   };
 
   return (

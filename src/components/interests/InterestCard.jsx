@@ -79,26 +79,19 @@ const InterestCard = ({
         interest.status === "pending" ? (
           <div className="flex gap-4">
             <button
-              onClick={() => onUpdateStatus(interest._id, "approved")}
+              onClick={() => onUpdateStatus(interest, "approved")}
               className="flex-1 btn btn-success"
             >
               Accept
             </button>
             <button
-              onClick={() => onUpdateStatus(interest._id, "rejected")}
+              onClick={() => onUpdateStatus(interest, "rejected")}
               className="flex-1 btn btn-error"
             >
               Reject
             </button>
           </div>
-        ) : (
-          <button
-            onClick={() => onUpdateStatus(interest._id, "pending")}
-            className="w-full btn btn-warning"
-          >
-            Revert to Pending
-          </button>
-        )
+        ) : null
       ) : null}
     </div>
   );

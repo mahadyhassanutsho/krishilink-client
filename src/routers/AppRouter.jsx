@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
-import { getCrops, getCropById } from "../services/api";
+import { getCrops } from "../services/api";
 
 const AppLayout = lazy(() => import("../layouts/AppLayout"));
 const ProtectedRoute = lazy(() =>
@@ -21,7 +21,7 @@ const LoginPage = lazy(() => import("../pages/LoginPage"));
 const RegisterPage = lazy(() => import("../pages/RegisterPage"));
 const ProfilePage = lazy(() => import("../pages/ProfilePage"));
 const UpdateProfilePage = lazy(() => import("../pages/UpdateProfilePage"));
-const ResetPasswordPage = lazy(() => import("../pages/ResetPasswordPage"));
+// const ResetPasswordPage = lazy(() => import("../pages/ResetPasswordPage"));
 
 const router = createBrowserRouter([
   {
@@ -47,7 +47,6 @@ const router = createBrowserRouter([
       },
       {
         path: "crops/:id",
-        loader: ({ params }) => getCropById(params.id),
         element: (
           <ProtectedRoute>
             <CropDetailsPage />
@@ -89,7 +88,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      { path: "reset-password", element: <ResetPasswordPage /> },
+      // { path: "reset-password", element: <ResetPasswordPage /> },
     ],
   },
 ]);
