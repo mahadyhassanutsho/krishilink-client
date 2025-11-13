@@ -18,7 +18,7 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="border border-base-300 rounded-box p-8 shadow-md max-w-2xl mx-auto text-center space-y-6">
+    <section className="border border-base-300 rounded-xl p-8 shadow-md max-w-2xl mx-auto text-center space-y-6">
       <motion.h2 className="text-3xl md:text-4xl font-semibold text-base-content">
         Stay Updated
       </motion.h2>

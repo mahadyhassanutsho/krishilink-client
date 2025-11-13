@@ -13,7 +13,7 @@ const CropDetailsPage = () => {
       <img
         src={crop.image}
         alt={crop.name}
-        className="w-full md:w-1/3 h-48 md:h-auto object-contain rounded-lg"
+        className="w-full md:w-1/3 h-48 md:h-auto object-contain rounded-xl"
       />
       <div className="flex-1 space-y-4">
         <h2 className="text-3xl font-bold text-primary">{crop.name}</h2>

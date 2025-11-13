@@ -16,7 +16,7 @@ const ProfilePage = () => {
       <PageTitle title="Profile" />
 
       <motion.div
-        className="relative border border-base-300 rounded-2xl shadow-lg w-fit p-16 mx-auto flex flex-col items-center"
+        className="relative border border-base-300 rounded-xl shadow-md w-fit p-16 mx-auto flex flex-col items-center"
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -25 }}

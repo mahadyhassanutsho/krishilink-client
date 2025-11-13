@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "krishilink-by-utsho"
-  }
+  },
+  "targets": {
+    "krishilink-by-utsho": {
+      "hosting": {
+        "krishilink": [
+          "krishilink"
+        ],
+        "krishilink-by-utsho": [
+          "krishilink-by-utsho"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

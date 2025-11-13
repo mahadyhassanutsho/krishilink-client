@@ -2,7 +2,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 const CropSlide = ({ crop }) => {
   return (
-    <div className="relative aspect-square md:aspect-2/1 w-full h-auto rounded-md overflow-hidden group">
+    <div className="relative aspect-square md:aspect-2/1 w-full h-auto rounded-xl overflow-hidden group">
       <img
         src={crop.image}
         alt={crop.name}

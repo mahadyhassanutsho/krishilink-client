@@ -23,7 +23,7 @@ const blogPosts = [
 
 const AgroNews = () => {
   return (
-    <section className="px-6 md:px-16 py-12 bg-accent text-accent-content rounded-3xl">
+    <section className="px-6 md:px-8 lg:px-16 py-12 bg-accent text-accent-content rounded-xl">
       <h2
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ const AgroNews = () => {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: i * 0.2 }}
-            className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all"
+            className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all"
           >
             <img
               src={post.img}

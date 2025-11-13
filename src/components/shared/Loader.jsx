@@ -18,7 +18,7 @@ const Loader = ({ size = "sm" }) => {
       {bars.map((_, i) => (
         <motion.span
           key={i}
-          className={`block rounded-sm bg-primary ${barSize}`}
+          className={`block rounded-xl bg-primary ${barSize}`}
           animate={{
             scaleY: [1, 1.75, 1],
             opacity: [0.5, 1, 0.5],

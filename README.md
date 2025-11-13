@@ -50,22 +50,9 @@ npm run dev
 
 ---
 
-## 🔑 Environment Variables
-
-Create a `.env` file in the root directory and add:
-
-```
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_SERVER_URL=https://krishilink-server.vercel.app
-```
-
----
-
 ## 📸 Live Demo
 
-[🌐 Visit Live Site](https://krishilink.netlify.app)
+[🌐 Visit Live Site](https://krishilink.web.app)
 
 ---
 

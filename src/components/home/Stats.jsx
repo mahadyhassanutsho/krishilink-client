@@ -32,7 +32,7 @@ const StatsSection = () => {
         <motion.div
           key={stat.label}
           whileHover={{ scale: 1.05 }}
-          className="p-4 rounded-lg shadow-lg bg-base-100"
+          className="p-4 rounded-xl shadow-lg bg-base-100"
         >
           {stat.icon}
           <h2 className="text-3xl font-bold mt-2">{stat.value}</h2>
