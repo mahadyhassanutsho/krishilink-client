@@ -70,7 +70,7 @@ const MyCropsPage = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -25 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="min-h-screen"
+      className="space-y-16"
     >
       <ScrollToTop />
 
@@ -93,7 +93,7 @@ const MyCropsPage = () => {
       </div>
 
       {loading ? (
-        <div className="flex justify-center mt-20">
+        <div className="flex justify-center">
           <Loader />
         </div>
       ) : filteredCrops.length > 0 ? (
@@ -108,7 +108,7 @@ const MyCropsPage = () => {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center mt-20 text-center">
+        <div className="flex flex-col items-center justify-center text-center">
           <span className="text-6xl mb-4">😢</span>
           <h2 className="text-3xl font-semibold text-gray-700 mb-2">
             No crops found

@@ -12,6 +12,7 @@ import AddCorpPage from "../pages/AddCropPage";
 import AllCropsPage from "../pages/AllCropsPage";
 import CropDetailsPage from "../pages/CropDetailsPage";
 import MyCropsPage from "../pages/MyCropsPages";
+import MyInterestsPage from "../pages/MyInterestsPage";
 
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
@@ -55,6 +56,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <MyCropsPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "my-interests",
+        element: (
+          <ProtectedRoute>
+            <MyInterestsPage />
           </ProtectedRoute>
         ),
       },

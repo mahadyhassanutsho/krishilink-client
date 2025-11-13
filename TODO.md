@@ -21,7 +21,7 @@
 - ✅ Configure Firebase Authentication (Login, Register, Google)  
 - ✅ Secure Firebase config with `.env`  
 - ✅ Setup React Router (SPA)  
-- 🕐 Connect client to backend APIs (Axios / Fetch)  
+- ✅ Connect client to backend APIs (Axios)  
 - ✅ Create GitHub repo `krishilink-client`  
 - ✅ Make ≥15 meaningful commits  
 - ✅ Write `README.md` (name, live URL, 5+ features)  
@@ -84,7 +84,7 @@
 
 - ✅ Add Crop Page  
 - ✅ My Posts Page  
-- 🚀 My Interests Page  
+- ✅ My Interests Page  
 - ✅ Profile Page  
 - ✅ Profile Update Page  
 

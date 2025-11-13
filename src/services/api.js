@@ -47,7 +47,17 @@ export const getInterestsByCropId = async (cropId) => {
   return res.data;
 };
 
+export const getInterestsByEmail = async (email) => {
+  const res = await axios.get(`/interests?email=${email}`);
+  return res.data;
+};
+
 export const updateInterest = async (interestId, interest) => {
   const res = await axios.patch(`/interests/${interestId}`, interest);
+  return res.data;
+};
+
+export const deleteInterest = async (id) => {
+  const res = await axios.delete(`/interests/${id}`);
   return res.data;
 };

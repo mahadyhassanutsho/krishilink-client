@@ -21,7 +21,7 @@ const privateRoutes = [
   { name: "Profile", path: "/profile" },
   { name: "Add Crops", path: "/add-crop" },
   { name: "My Crops", path: "/my-crops" },
-  { name: "My Interests", path: "/interests" },
+  { name: "My Interests", path: "/my-interests" },
 ];
 
 const Navbar = () => {

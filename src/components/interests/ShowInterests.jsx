@@ -48,7 +48,8 @@ const ShowInterests = ({ crop }) => {
     );
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto p-4">
+    <div className="space-y-2 max-w-4xl mx-auto p-4">
+      <h2>Interests: </h2>
       {interests.map((interest) => (
         <InterestCard
           key={interest._id}

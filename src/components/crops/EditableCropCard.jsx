@@ -14,6 +14,7 @@ const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
     defaultValues: {
       name: crop.name,
       type: crop.type,
+      quantity: crop.quantity,
       pricePerUnit: crop.pricePerUnit,
       unit: crop.unit,
       location: crop.location,
@@ -30,6 +31,7 @@ const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
     reset({
       name: crop.name,
       type: crop.type,
+      quantity: crop.quantity,
       pricePerUnit: crop.pricePerUnit,
       unit: crop.unit,
       location: crop.location,
@@ -111,6 +113,12 @@ const EditableCropCard = ({ crop, onDelete, onUpdate }) => {
               <input
                 {...register("type")}
                 placeholder="Type"
+                className="input input-bordered w-full"
+              />
+
+              <input
+                {...register("quantity")}
+                placeholder="Quantity"
                 className="input input-bordered w-full"
               />
 

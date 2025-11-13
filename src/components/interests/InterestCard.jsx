@@ -1,8 +1,16 @@
 import { FaComment, FaHashtag } from "react-icons/fa";
 
+import { useAuth } from "../../providers/AuthProvider";
+
 const InterestCard = ({ interest, crop, showCrop = false, onUpdateStatus }) => {
+  const { user } = useAuth();
+
   return (
-    <div className="p-4 bg-base-100 rounded-xl shadow-md space-y-4">
+    <div
+      className={
+        showCrop ? "" : "p-4 bg-base-100 rounded-xl shadow-md space-y-4"
+      }
+    >
       {showCrop && crop && (
         <div className="space-y-1">
           <h2 className="text-2xl font-extrabold text-primary">{crop.name}</h2>
@@ -61,28 +69,37 @@ const InterestCard = ({ interest, crop, showCrop = false, onUpdateStatus }) => {
           {interest.status}
         </p>
 
-        <p className="flex items-center gap-2 text-lg font-semibold bg-primary text-primary-content px-4 py-2 rounded-lg shadow-md w-fit mt-2">
-          <span>Total Price:</span>
+        <p className="flex items-center gap-2 text-lg mt-4">
+          <strong>Total Price:</strong>
           <span>{interest.quantity * (crop.pricePerUnit || 0)} BDT</span>
         </p>
       </div>
 
-      {interest.status === "pending" && (
-        <div className="flex gap-4">
+      {crop.ownerEmail === user.email ? (
+        interest.status === "pending" ? (
+          <div className="flex gap-4">
+            <button
+              onClick={() => onUpdateStatus(interest._id, "approved")}
+              className="flex-1 btn btn-success"
+            >
+              Accept
+            </button>
+            <button
+              onClick={() => onUpdateStatus(interest._id, "rejected")}
+              className="flex-1 btn btn-error"
+            >
+              Reject
+            </button>
+          </div>
+        ) : (
           <button
-            onClick={() => onUpdateStatus(interest._id, "approved")}
-            className="flex-1 btn btn-primary"
+            onClick={() => onUpdateStatus(interest._id, "pending")}
+            className="w-full btn btn-warning"
           >
-            Accept
+            Revert to Pending
           </button>
-          <button
-            onClick={() => onUpdateStatus(interest._id, "rejected")}
-            className="flex-1 btn btn-secondary"
-          >
-            Reject
-          </button>
-        </div>
-      )}
+        )
+      ) : null}
     </div>
   );
 };
